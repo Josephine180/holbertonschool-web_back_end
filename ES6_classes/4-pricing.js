@@ -29,7 +29,7 @@ export default class Pricing {
   }
 
   set currency(NewCurrency) {
-    if (!NewCurrency instanceof Currency) {
+    if (!(NewCurrency instanceof Currency)) {
       throw new TypeError('Currency must be a currency');
     }
     this._currency = NewCurrency;
@@ -39,7 +39,7 @@ export default class Pricing {
     return `${this._amount} ${this._currency.name} (${this._currency.code})`;
   }
 
-  static convertPrice() {
+  static convertPrice(amount, conversionRate) {
     return amount * conversionRate;
   }
 }
