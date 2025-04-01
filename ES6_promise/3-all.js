@@ -3,9 +3,13 @@ import { uploadPhoto, createUser } from './utils';
 export default function handleProfileSignup() {
   return Promise.all([uploadPhoto(), createUser()])
     .then(([Photo, User]) => {
-      console.log(Photo.body, User.firstName, User.lastName);
+      if (Photo && User) {
+        console.log(Photo.body, User.firstName, User.lastName);
+      } else {
+        console.error('Données manquantes.');
+      }
     })
-    .catch(() => {
-      console.log('Signup system offline');
+    .catch((error) => {
+      console.error('Signup system offline', error);
     });
 }
