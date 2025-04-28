@@ -5,8 +5,6 @@ This module contains a coroutine wich collects 10 randoms numbers.
 """
 
 
-import asyncio
-import random
 from typing import List
 
 
