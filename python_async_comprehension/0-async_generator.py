@@ -2,7 +2,7 @@
 
 import asyncio
 import random
-
+from typing import AsyncGenerator
 
 """
 Ce module contient une coroutine asynchrone `async_generator` qui génère 10
@@ -13,7 +13,7 @@ et `asyncio` pour gérer l'asynchronisme.
 """
 
 
-async def async_generator():
+async def async_generator() -> AsyncGenerator[float, None]:
     """
     Cette coroutine génère 10 nombres aléatoires entre 0 et 10.
 
