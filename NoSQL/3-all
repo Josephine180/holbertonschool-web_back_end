@@ -1,0 +1,2 @@
+// lists all coduments in the collection
+db.school.find()
