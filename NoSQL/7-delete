@@ -1,5 +1,4 @@
-// deletes all document with name in collection
+// deletes all documents with name in collection
 db.school.remove(
-  { name: "Holberton school" },
-  { multi: true }
+  { name: "Holberton school" }
 )
