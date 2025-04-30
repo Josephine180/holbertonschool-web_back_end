@@ -49,10 +49,14 @@ class Server:
 
         return dataset[start_index:end_index]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict[str, None]:
+        """
+        Return a dictionary containing pagination data and hypermedia metadata.
+        """
+
         data = self.get_page(page, page_size)
         dataset_length = len(self.dataset())
-        total_pages = math.ceil(dataset_length / page_size)
+        total_pages = math.ceil(dataset_length / page_size) if page > 0 else 0
 
         return {
             'page_size': len(data),
