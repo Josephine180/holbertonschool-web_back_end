@@ -2,6 +2,7 @@
 
 
 """
+
 This module is a function that returns a tuple of size two with start and end
 index.
 """
