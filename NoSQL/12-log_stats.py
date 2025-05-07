@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
-This module is a script that provides some stats about Ngins Logs stored in BDD
+This module is a script that provides sstats about nginx in MongoDB.
 """
-
 from pymongo import MongoClient
 
 
@@ -28,5 +27,7 @@ def print_nginx_stats(nginx_collection):
 
 
 if __name__ == "__main__":
+    # Connect to MongoDB and call the function
     client = MongoClient('mongodb://127.0.0.1:27017')
     print_nginx_stats(client.logs.nginx)
+    
