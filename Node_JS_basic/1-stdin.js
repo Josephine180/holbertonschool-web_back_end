@@ -1,16 +1,12 @@
-process.stdin.setEncoding('utf8');
-process.stdin.resume();
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-// Message de bienvenue
-console.log('Welcome to Holberton School, what is your name?');
-
-// Quand l'utilisateur tape quelque chose
-process.stdin.on('data', (input) => {
-  const name = input.trim(); // enlève les sauts de ligne
-  console.log(`Your name is: ${name}`);
+process.stdin.on('readable', () => {
+  const prénom = process.stdin.read();
+  if (prénom) {
+    process.stdout.write(`Your name is: ${prénom}`);
+  }
 });
 
-// Quand l'entrée est terminée (par exemple avec echo ou Ctrl+D)
 process.stdin.on('end', () => {
-  console.log('This important software is now closing');
+  process.stdout.write('This important software is now closing\n');
 });
